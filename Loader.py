@@ -45,7 +45,7 @@ def create_shop_list():
 
 def create_cook_book():
     finish_cook_book = {}
-    with open('Dishes.txt', encoding = 'utf-8') as CookBook:
+    with open('Dishes.txt', encoding='utf-8') as CookBook:
         for line_dish in CookBook:
             ingredients = []
             amount_ingredients = int(CookBook.readline())
