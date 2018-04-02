@@ -45,21 +45,20 @@ def create_shop_list():
 
 def create_cook_book():
     finish_cook_book = {}
-    with open('Dishes.txt', encoding='utf-8') as CookBook:
-        for line_dish in CookBook:
+    with open('Dishes.txt', encoding='utf-8') as cook_book:
+        for line_dish in cook_book:
             ingredients = []
-            amount_ingredients = int(CookBook.readline())
+            amount_ingredients = int(cook_book.readline())
             for i in range(amount_ingredients):
-                line_ingredient = CookBook.readline().split('|')
+                line_ingredient = cook_book.readline().split('|')
                 load_cook_book = {
                     'ingridient_name' : line_ingredient[0].strip().lower(),
                     'quantity' : int(line_ingredient[1]),
                     'measure' : line_ingredient[2].strip().lower()
                 }
                 ingredients.append(load_cook_book)
-                finish_cook_book.update({line_dish.strip().lower() : ingredients})
-                i += 1
-            CookBook.readline()
+            finish_cook_book.update({line_dish.strip().lower() : ingredients})
+            cook_book.readline()
     return  finish_cook_book
 
 
